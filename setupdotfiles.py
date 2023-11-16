@@ -33,16 +33,14 @@ def main():
 
     # Mover la carpeta eww a ~/.config/eww
     os.makedirs(os.path.expanduser("~/.config/eww"), exist_ok=True)
-    run_command("mv ./config/eww/* ~/.config/eww/")
-    run_command("rmdir ./config/eww")
+    run_command("cp ./config/eww/* ~/.config/eww/")
 
     # Mover la carpeta picom a ~/.config/picom
     os.makedirs(os.path.expanduser("~/.config/picom"), exist_ok=True)
-    run_command("mv ./config/picom/picom.conf ~/.config/picom/")
+    run_command("cp ./config/picom/picom.conf ~/.config/picom/")
 
     # Mover todos los fonts a /usr/share/fonts
-    run_command("sudo mv ./config/fonts/* /usr/share/fonts/")
-    run_command("sudo rmdir ./config/fonts")
+    run_command("sudo cp ./fonts/* /usr/share/fonts/")
 
     # Iniciar eww y picom en el archivo de configuración de bspwm
     with open(os.path.expanduser("~/.config/bspwm/bspwmrc"), "a") as bspwmrc:
